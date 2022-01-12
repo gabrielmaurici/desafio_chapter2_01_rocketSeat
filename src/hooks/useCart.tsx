@@ -31,10 +31,13 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
 
     return [];
   });
-
+  //continuar daqui
   const addProduct = async (productId: number) => {
     try {
-      // TODO
+      const response = await api.get(`/products/${productId}`);
+    
+      setCart([...cart, response.data]);
+      console.log(cart);
     } catch {
       // TODO
     }
